@@ -1,10 +1,10 @@
 
 
-const Course = ({course}) => {
+const Course = ({course , handleAddCourseName}) => {
     const {cover,title,credit,price,details,icon,icon_2} = course;
     return (
         <div >
-            <div className="card w-[312px] h-[500px] bg-base-100 shadow-xl ">
+            <div className="card w-full h-full bg-base-100 shadow-xl ">
             <figure>
                 <img src={cover} alt="" /></figure>
             <div className="card-body">
@@ -21,7 +21,7 @@ const Course = ({course}) => {
                     </div>
                 </div>
                 <div className="card-actions justify-center">
-                <button className="btn btn-primary mt-5">Select</button>
+                <button onClick={() => handleAddCourseName(course)} className="btn btn-primary mt-5">Select</button>
                 </div>
             </div>
             </div>
