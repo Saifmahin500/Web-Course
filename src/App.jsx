@@ -5,15 +5,40 @@ import CourseName from './components/coursename/CourseName'
 
 function App() {
   const [courseName , setCourseName] = useState([])
+  const [creditRemaining, SetCreditRemaining] =useState(0)
+  const [totalCredit, setTotalCredit] = useState(0)
 
   const handleAddCourseName = course =>{
   const isExit = courseName.find((item) => item.id === course.id);
+
+  let count = course.credit;
+  // let priceCount = course.price;
+
   if (isExit) {
     alert ("already taken");
     
   } else {
+
+    courseName.forEach((item) => {
+      count =  parseInt(count) + parseInt(item.credit);
+      
+    })
+
+  
+    
+
+    
+     const totalRemaining = 20 - count;
+     if (count > 20) {
+      return alert('no more credit hour') 
+     } else {
+      setTotalCredit(count);
+     SetCreditRemaining(totalRemaining);
+
     const newCourse = [...courseName, course]
     setCourseName(newCourse);
+     }
+     
   }
   
   }
@@ -27,7 +52,10 @@ function App() {
       
       <div className='flex max-w-7xl mx-auto'>
       <Cards handleAddCourseName={handleAddCourseName}></Cards>
-      <CourseName courseName={courseName}></CourseName>
+      <CourseName courseName={courseName}
+      creditRemaining={creditRemaining}
+      totalCredit={totalCredit}
+      ></CourseName>
       </div>
       
       
