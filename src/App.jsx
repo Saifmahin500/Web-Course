@@ -7,14 +7,15 @@ import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   const [courseName , setCourseName] = useState([])
-  const [creditRemaining, SetCreditRemaining] =useState(0)
+  
   const [totalCredit, setTotalCredit] = useState(0)
+  const [creditRemaining, SetCreditRemaining] =useState(0)
 
   const handleAddCourseName = course =>{
   const isExit = courseName.find((item) => item.id === course.id);
 
   let count = course.credit;
-  // let priceCount = course.price;
+  
 
   if (isExit) {
     toast.error("already taken",
@@ -30,7 +31,7 @@ function App() {
     })
      const totalRemaining = 20 - count;
      if (count > 20) {
-      toast.warning("no more credit hour",
+      toast.warning("Sorry total credit 20hour done . So you can't do it anymore",
       {position: toast.POSITION.TOP_CENTER}
       );
      } else {

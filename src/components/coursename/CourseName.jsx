@@ -14,7 +14,7 @@ const CourseName = ({courseName,totalCredit,creditRemaining}) => {
             }
             <br />
             <hr />
-            <h1 className=" font-medium">Total Credit Hour : {totalCredit}hr</h1>
+            <h1 className=" font-medium">Total Credit Hour : {totalCredit}</h1>
         </div>
     );
 };
