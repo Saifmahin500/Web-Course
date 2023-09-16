@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import Cards from './components/card/Cards'
 import CourseName from './components/coursename/CourseName'
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [courseName , setCourseName] = useState([])
@@ -15,7 +17,10 @@ function App() {
   // let priceCount = course.price;
 
   if (isExit) {
-    alert ("already taken");
+    toast.error("already taken",
+    {position: toast.POSITION.TOP_CENTER}
+    );
+    
     
   } else {
 
@@ -23,20 +28,18 @@ function App() {
       count =  parseInt(count) + parseInt(item.credit);
       
     })
-
-  
-    
-
-    
      const totalRemaining = 20 - count;
      if (count > 20) {
-      return alert('no more credit hour') 
+      toast.warning("no more credit hour",
+      {position: toast.POSITION.TOP_CENTER}
+      );
      } else {
       setTotalCredit(count);
      SetCreditRemaining(totalRemaining);
 
     const newCourse = [...courseName, course]
     setCourseName(newCourse);
+    
      }
      
   }
@@ -61,7 +64,7 @@ function App() {
       
       
       
-      
+      <ToastContainer />
     </>
   )
 }

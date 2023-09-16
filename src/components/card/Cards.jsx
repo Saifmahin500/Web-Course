@@ -15,8 +15,9 @@ const Cards = ({handleAddCourseName}) => {
            
             <div className="grid grid-cols-3 gap-5  ">
             {
-                cards.map(course => <Course key={course.id} 
-                    course ={course}
+                cards.map((course) => <Course key={course.id} 
+                    
+                    course={course}
                     handleAddCourseName={handleAddCourseName}></Course>)
             }
             </div>

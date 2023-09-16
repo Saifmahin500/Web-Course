@@ -9,7 +9,7 @@ const CourseName = ({courseName,totalCredit,creditRemaining}) => {
             <h1 className="text-xl font-bold text-center mb-4 ">Course Name </h1>
             {
                 
-                    courseName.map(name  => <Name key={name.id}  name={name}></Name> )
+                    courseName.map((name,idx)  => <Name key={name.id} idx={idx} name={name}></Name> )
                 
             }
             <br />
